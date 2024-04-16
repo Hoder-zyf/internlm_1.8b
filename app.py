@@ -18,9 +18,9 @@ def chat(message,history):
         yield response
 
 gr.ChatInterface(chat,
-                 title="InternLM2-Chat-7B",
+                 title="InternLM2-1_8b_自我认知",
                 description="""
-InternLM is mainly developed by Shanghai AI Laboratory.  
+这是一个不按标准输出的小助手哦.  
                  """,
                  ).queue(1).launch()
 
