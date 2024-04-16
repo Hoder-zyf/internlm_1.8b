@@ -4,10 +4,9 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
 
 # download internlm2 to the base_path directory using git tool
-base_path = './internlm2-chat-1_8b'
+base_path = './HW4'
 os.system(f'git clone https://code.openxlab.org.cn/amstrongzyf/HW4.git {base_path}')
-model_path=base_path+'/HW4/final_model'
-os.system(f'cd {model_path} && git lfs pull')
+os.system(f'cd {base_path} && git lfs pull')
 
 tokenizer = AutoTokenizer.from_pretrained(base_path,trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(base_path,trust_remote_code=True, torch_dtype=torch.float16).cuda()
@@ -22,3 +21,4 @@ gr.ChatInterface(chat,
 InternLM is mainly developed by Shanghai AI Laboratory.  
                  """,
                  ).queue(1).launch()
+
